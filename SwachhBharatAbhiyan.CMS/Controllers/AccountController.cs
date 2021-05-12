@@ -20,8 +20,6 @@ using SwachBharat.CMS.Bll.ViewModels.MainModel;
 namespace SwachhBharatAbhiyan.CMS.Controllers
 {
     [Authorize]
-
-
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
