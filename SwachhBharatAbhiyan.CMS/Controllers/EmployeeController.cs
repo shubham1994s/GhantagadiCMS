@@ -139,7 +139,7 @@ namespace SwachhBharatAbhiyan.CMS.Controllers
             if (SessionHandler.Current.AppId != 0)
             {
                 ViewBag.daId = daId;
-                return PartialView("partial_work_route");
+                return View();
             }
             else
                 return Redirect("/Account/Login");

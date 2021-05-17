@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-   
+    $('#map').hide();
     var UserId = $('#selectnumber').val();
     $.ajax({
         type: "post",
@@ -24,6 +24,11 @@
         debugger;
         var selectednumber = $('#selectnumber option:selected').val();
         BindVehicalnumber(selectednumber);
+    });
+    $('#showmap').click(function () {
+        debugger;
+        $('#map').show();
+
     });
     $("#demoGridnew").DataTable({
 
@@ -56,14 +61,7 @@
             { "data": "DaEndDate", "name": "daEndDate", "autoWidth": true },
             { "data": "EndTime", "name": "endTime", "autoWidth": true },
             { "data": "VehicleNumber", "name": "VehicleNumber", "autoWidth": true },
-
-         { "render": function (data, type, full, meta) { return '<a   data-toggle="modal" class="tooltip1" style="cursor:pointer" onclick="work_route(' + full["daID"] + ')" ><i id="viewPlaceHolder" class="material-icons location-icon">location_on</i><span class="tooltiptext1">Work Map Route</span> </a>'; }, "width": "10px" },
-          /*  { "render": function (data, type, full, meta) { return '<div id="viewPlaceHolder" onclick="partial_work_route(' + full["daID"] + ')</div>" >' },*/
-        //  {
-        //@Html.RenderAction("partial_work_route", "Employee");
-        //   },
-
-           
+      /*   { "render": function (data, type, full, meta) { return '<a   data-toggle="modal" class="tooltip1" style="cursor:pointer" onclick="work_route(' + full["daID"] + ')" ><i id="viewPlaceHolder" class="material-icons location-icon">location_on</i><span class="tooltiptext1">Work Map Route</span> </a>'; }, "width": "10px" },*/       
             { "data": "InBatteryStatus", "name": "InBatteryStatus", "autoWidth": true },
             { "data": "OutBatteryStatus", "name": "OutBatteryStatus", "autoWidth": true },
 
@@ -98,27 +96,19 @@ function test(id) {
 };
 
 
-function work_route(id) {
-    debugger;
-    window.location.href = "/Employee/WorkMapRoute?daId=" + id;
-};
+//function work_route(id) {
+//    debugger;
+//    window.location.href = "/Employee/WorkMapRoute?daId=" + id;
+//};
 
-function partial_work_route(id) {
-    debugger;
- // window.location.href = "/Employee/partial_work_route?daId=" + id;
-  // Html.RenderAction("partial_work_route", "Employee");
-    $("#viewPlaceHolder").load("/Employee/partial_work_route"
-        ,
-        { daId: id, viewName: "partial_work_route" }
-    );
-};
+
 function map(a) {
     window.location.href = "/Location/viewLocation?teamId=" + a;
 
 };
 //////////////////////////////////////////////////////////////////////////////
 
-function Filter() {
+function Filter1() {
     Search();
 }
 

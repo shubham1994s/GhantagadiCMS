@@ -8,6 +8,7 @@
 
 @Scripts.Render("~/Scripts/IndexScript")
 <script src="~/Content/DatatableGrid/EmployeeSummaryGridNew.js"></script>
+<html>
 <body>
     <br />
 
@@ -32,17 +33,17 @@
             <div class="col-sm-3">
                 @*<label>कर्मचारी निवडा / Select Employee</label>*@
                 <label> Select Employee</label>
-                <select id="selectnumber" class="form-control form-control form-control-sm"></select>
+                <select id="selectnumber" style="height:57%" class="form-control form-control form-control-sm"></select>
             </div>
 
             <div class="col-sm-3">
                 @*<label>कर्मचारी निवडा / Select Employee</label>*@
                 <label> Select Vehical Number</label>
-                <select id="selectVehicalnumber" class="form-control form-control form-control-sm"></select>
+                <select id="selectVehicalnumber" style="height:57%" class="form-control form-control form-control-sm"></select>
             </div>
             <div class="col-sm-2">
                 <div class="controls">
-                    <input data-background-color="filter-button-box-color" style="margin-top:28px;" class="btn btn-sm btn-success filter-button-style" type="button" value="Filter Records" id="filter" onclick="Filter()" />
+                    <input data-background-color="filter-button-box-color" style="margin-top:28px;" class="btn btn-sm btn-success filter-button-style" type="button" value="Filter Records" id="filter" onclick="Filter1()" />
                 </div>
             </div>
         </div>
@@ -80,7 +81,7 @@
                         <th> End Date</th>
                         <th> End Time</th>
                         <th>Vehicle Number </th>
-                        <th data-sortable="false"> Work Map </th>
+                        @*<th data-sortable="false"> Work Map </th>*@
                         <th> In Time Battery</th>
                         <th> Out Time Battery</th>
                         @*<th> Total Distance (km)</th>*@
@@ -89,6 +90,12 @@
                 </thead>
             </table>
         </div>
+    </div>
+    <div class="controls">
+        <div class="col-sm-1"><span><input type="button" style="margin-bottom: 10px;margin-left: 1542%" class="btn btn-success btn-sm" id="showmap"  value="Show Map" /></span></div>
+    </div>
+    <div id="map">
+        @{ Html.RenderAction("partial_work_route", new { daId = 2052 }); }
     </div>
 </body>
 </html>
