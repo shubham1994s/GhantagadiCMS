@@ -1794,12 +1794,12 @@ namespace SwachBharat.CMS.Bll.Repository.GridRepository
                 var data = db.SP_NewEmployeeSummary(fdate, tdate, userId <= 0 ? null : userId, VehicleNumber == "-1" ? null : VehicleNumber).ToList();
                 // var data2 = data.OrderByDescending(c => c.Startdate).ThenByDescending(c => c.StartTime).ToList();
                 //var data2 = data1.GroupBy(o => o.userId).Select(o => o.First()).AsEnumerable().ToList();
-
+              
                 foreach (var x in data)
                 {
                     //TimeSpan spWorkMin = TimeSpan.FromMinutes(Convert.ToDouble(x.IdelTime));
                     //string workHours = spWorkMin.ToString(@"hh\:mm");
-
+                    
                     string EndDate = "";
                     if (x.Enddate == null)
                     {
@@ -1830,14 +1830,14 @@ namespace SwachBharat.CMS.Bll.Repository.GridRepository
                         OutBatteryStatus = x.OutBatteryStatus,
                         daDateTIme = (displayTime + " " + time),
                         VehicleNumber = x.VehicleNumber,
+                 
+                    //daDateTIme = Convert.ToDateTime(x.Startdate + x.StartTime).ToString("dd/MM/yyyy hh:mm tt"),
+                    //DateTime startDate = Convert.ToDateTime(a + " " + Time1);
 
-                        //daDateTIme = Convert.ToDateTime(x.Startdate + x.StartTime).ToString("dd/MM/yyyy hh:mm tt"),
-                        //DateTime startDate = Convert.ToDateTime(a + " " + Time1);
-
-                        //String.Format("{0:0.00}", 123.4567);
-                        //IdelTime = workHours
-                        //AnsDate = Convert.ToDateTime(x.AnsDate).ToString("dd/MM/yyyy hh:mm tt"),
-                    });
+                    //String.Format("{0:0.00}", 123.4567);
+                    //IdelTime = workHours
+                    //AnsDate = Convert.ToDateTime(x.AnsDate).ToString("dd/MM/yyyy hh:mm tt"),
+                });
                 }
 
 
@@ -1858,6 +1858,7 @@ namespace SwachBharat.CMS.Bll.Repository.GridRepository
                 }
                 //return obj.OrderByDescending(c => c.daID);
                 var f = obj.OrderByDescending(c => DateTime.Parse(c.daDateTIme)).ToList();
+               
                 return f;
             }
         }

@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    
     $('#map').hide();
     var UserId = $('#selectnumber').val();
     $.ajax({
@@ -29,6 +29,8 @@
         debugger;
         $('#map').show();
 
+
+
     });
     $("#demoGridnew").DataTable({
 
@@ -38,7 +40,8 @@
         "serverSide": true, // for process server side
         "filter": true, // this is for disable filter (search box)
         "orderMulti": false, // for disable multiple column at once
-        //"pageLength": 10,
+       // "pageLength": 1,
+      //  "bPaginate": false,
         width: 670,
         "ajax": {
             "url": "/Datable/GetJqGridJson?rn=EmployeeSummarynew",
@@ -46,15 +49,15 @@
             "datatype": "json"
         },
 
-        "columnDefs":
-            [{
-                "targets": [0],
-                "visible": false,
-                "searchable": false
-            },
-            ],
+        //"columnDefs":
+        //    [{
+        //        "targets": [0],
+        //        "visible": false,
+        //        "searchable": false
+        //    },
+        //    ],
         "columns": [
-            { "data": "daID", "name": "daID", "autoWidth": true },
+            { "data": "daID", "name": "daID", "id":"daID", "autoWidth": true },
             { "data": "UserName", "name": "userName", "autoWidth": true },
             { "data": "daDate", "name": "daDate", "autoWidth": true },
             { "data": "StartTime", "name": "startTime", "autoWidth": true },
@@ -109,7 +112,12 @@ function map(a) {
 //////////////////////////////////////////////////////////////////////////////
 
 function Filter1() {
+
     Search();
+    debugger;
+
+   
+    
 }
 
 function Search() {
@@ -135,7 +143,14 @@ function Search() {
     // alert(value );
     
     oTable = $('#demoGridnew').DataTable();
+    var dataArr = [];
+    $.each($("#demoGridnew tr"), function () {
+        debugger;
+        dataArr.push($(this).find('td').eq(0).text()); //find its first td and push the value
+
+    });
+    console.log(dataArr[1]);
     oTable.search(value).draw();
     oTable.search("");
-    document.getElementById('USER_ID_FK').value = -1;
+  //  document.getElementById('USER_ID_FK').value = -1;
 }
