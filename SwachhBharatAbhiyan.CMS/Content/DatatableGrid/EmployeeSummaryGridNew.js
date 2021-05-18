@@ -49,13 +49,13 @@
             "datatype": "json"
         },
 
-        //"columnDefs":
-        //    [{
-        //        "targets": [0],
-        //        "visible": false,
-        //        "searchable": false
-        //    },
-        //    ],
+        "columnDefs":
+            [{
+                "targets": [0],
+                "visible": false,
+                "searchable": false
+            },
+            ],
         "columns": [
             { "data": "daID", "name": "daID", "id":"daID", "autoWidth": true },
             { "data": "UserName", "name": "userName", "autoWidth": true },
