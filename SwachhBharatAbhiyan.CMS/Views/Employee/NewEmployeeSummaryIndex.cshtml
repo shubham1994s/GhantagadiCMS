@@ -96,12 +96,16 @@
     <div class="controls">
         <div class="col-sm-1"><span><input type="button" style="margin-bottom: 10px;margin-left: 1512%" class="btn btn-success btn-sm" id="showmap" value="Show Map" /></span></div>
     </div>
+
     <div id="map" style="width:100%; margin:0 auto;">
-        @{ Html.RenderAction("partial_work_route", new { daId = 2052 }); }
+      
     </div>
 </body>
 </html>
 <script>
+
+    debugger;
+     
     var date = new Date();
 
     var day = date.getDate();

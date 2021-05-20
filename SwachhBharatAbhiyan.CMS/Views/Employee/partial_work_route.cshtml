@@ -156,7 +156,7 @@
 
     @*<input type="hidden" value='@Request.QueryString["daId"]' id='HdnIndustries' />*@
 
-    <input type="hidden" value='2052' id='HdnIndustries' />
+    <input type="hidden" value='@ViewBag.daId' id='HdnIndustries' />
     <input type="hidden" value='' id='route_date' />
     <input type="hidden" value='' id='userid' />
     <div class="container ">
@@ -271,7 +271,7 @@
             }
 
 
-
+            debugger;
             var industries = $("#HdnIndustries").val();
             var geocoder = new google.maps.Geocoder();
 

@@ -1797,9 +1797,10 @@ namespace SwachBharat.CMS.Bll.Repository.GridRepository
               
                 foreach (var x in data)
                 {
+                   
                     //TimeSpan spWorkMin = TimeSpan.FromMinutes(Convert.ToDouble(x.IdelTime));
                     //string workHours = spWorkMin.ToString(@"hh\:mm");
-                    
+
                     string EndDate = "";
                     if (x.Enddate == null)
                     {

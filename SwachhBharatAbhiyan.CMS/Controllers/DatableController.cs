@@ -297,7 +297,7 @@ namespace SwachhBharatAbhiyan.CMS.Controllers
                     break;
                 case "EmployeeSummarynew":
                     gridRepository = new NewEmpolyeeSummaryGridRepository(0, searchString, fdate, tdate, userId, Vehicalnumber, appId);
-                    
+
                     return gridRepository;
                    
                     break;

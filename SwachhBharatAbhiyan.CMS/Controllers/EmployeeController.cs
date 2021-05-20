@@ -124,21 +124,14 @@ namespace SwachhBharatAbhiyan.CMS.Controllers
             else
                 return Redirect("/Account/Login");
         }
-        public ActionResult WorkMapRoute(int daId)
-        {
-            if (SessionHandler.Current.AppId != 0)
-            {
-                ViewBag.daId = daId;
-                return View();
-            }
-            else
-                return Redirect("/Account/Login");
-        }
+       
+
+        [HttpPost]
         public ActionResult partial_work_route(int daId)
         {
             if (SessionHandler.Current.AppId != 0)
             {
-                ViewBag.daId = daId;
+                ViewBag.daId =  daId;
                 return View();
             }
             else
@@ -149,6 +142,7 @@ namespace SwachhBharatAbhiyan.CMS.Controllers
         {
             if (SessionHandler.Current.AppId != 0)
             {
+               
                 return View();
             }
             else
@@ -159,6 +153,7 @@ namespace SwachhBharatAbhiyan.CMS.Controllers
         {
             if (SessionHandler.Current.AppId != 0)
             {
+              
                 return View();
             }
             else
