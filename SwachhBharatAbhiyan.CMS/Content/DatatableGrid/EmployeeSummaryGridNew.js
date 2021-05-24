@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
     debugger;
-   
-   // $('#map').hide();
+  
     var UserId = $('#selectnumber').val();
     $.ajax({
         type: "post",
@@ -57,6 +56,7 @@
             "url": "/Datable/GetJqGridJson?rn=EmployeeSummarynew",
             "type": "POST",
             "datatype": "json"
+            
         },
 
         "columnDefs":
@@ -82,7 +82,7 @@
         ],
         //Sort: "locId DESC"
     });
-
+    
    
 });
 function BindVehicalnumber(selectednumber) {
@@ -129,6 +129,7 @@ function Filter1() {
 
 function Search() {
     debugger;
+
     var txt_fdate, txt_tdate, Client, UserId;
     var name = [];
     var arr = [$('#txt_fdate').val(), $('#txt_tdate').val()];
@@ -147,12 +148,24 @@ function Search() {
     var Product = "";
     var catProduct = "";
     var value = txt_fdate + "," + txt_tdate + "," + UserId + "," + Vehicalnumber + "," + $("#s").val();//txt_fdate + "," + txt_tdate + "," + UserId + "," + Client + "," + NesEvent + "," + Product + "," + catProduct + "," + 1;
-    // alert(value );
-    
+    if (UserId != -1)
+    {
+
     oTable = $('#demoGridnew').DataTable();
-   
-   // var selectedIndex = oTable.row('#trdaID').data();  
     oTable.search(value).draw();
     oTable.search("");
-  //  document.getElementById('USER_ID_FK').value = -1;
+        $('#map').show();
+        $('#showmap').show();
+    }
+    if (UserId == -1) {
+        $("#demoGridnew tbody").empty();  
+      
+        $('#map').hide();
+        $('#showmap').hide();
+       // oTable = $('#demoGridnew').DataTable();
+        
+
+        
+    }
+ 
 }

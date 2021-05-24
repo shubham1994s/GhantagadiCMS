@@ -3,12 +3,12 @@
     Layout = "";
 }
 
+
 @Styles.Render("~/Content/IndexCSS")
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 
 @Scripts.Render("~/Scripts/IndexScript")
 
-<script src="~/Content/DatatableGrid/EmployeeSummaryGridNew.js"></script>
 <html>
 <body>
     <br />
@@ -98,14 +98,15 @@
     </div>
 
     <div id="map" style="width:100%; margin:0 auto;">
-      
+
     </div>
 </body>
 </html>
+
 <script>
 
     debugger;
-     
+    
     var date = new Date();
 
     var day = date.getDate();
@@ -124,6 +125,7 @@
 </script>
 <script src="~/Content/graph-assets/js/custom.js"></script>
 <script src="~/Content/css/datepicker/js/datepicker.js"></script>
+
 <script type="text/javascript">
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
@@ -145,4 +147,7 @@
 
 
 </script>
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/DatatableGrid/EmployeeSummaryGridNew.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
