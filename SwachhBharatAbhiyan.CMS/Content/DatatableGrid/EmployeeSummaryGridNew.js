@@ -1,6 +1,47 @@
 ﻿$(document).ready(function () {
     debugger;
-  
+
+    $("#demoGridnew").DataTable({
+
+        "sDom": "ltipr",
+        //"order": [[10, "desc"]],
+        "processing": true, // for show progress bar
+        "serverSide": true, // for process server side
+        "filter": true, // this is for disable filter (search box)
+        "orderMulti": false, // for disable multiple column at once
+        // "pageLength": 1,
+        //  "bPaginate": false,
+        width: 670,
+        "ajax": {
+            "url": "/Datable/GetJqGridJson?rn=EmployeeSummarynew",
+            "type": "POST",
+            "datatype": "json"
+
+        },
+
+        "columnDefs":
+            [{
+                "targets": [0],
+                "visible": false,
+                "searchable": false
+            },
+            ],
+        "columns": [
+            { "data": "daID", "name": "daID", "id": "daID", "autoWidth": true },
+            { "data": "UserName", "name": "userName", "autoWidth": true },
+            { "data": "daDate", "name": "daDate", "autoWidth": true },
+            { "data": "StartTime", "name": "startTime", "autoWidth": true },
+            { "data": "DaEndDate", "name": "daEndDate", "autoWidth": true },
+            { "data": "EndTime", "name": "endTime", "autoWidth": true },
+            { "data": "VehicleNumber", "name": "VehicleNumber", "autoWidth": true },
+            /*   { "render": function (data, type, full, meta) { return '<a   data-toggle="modal" class="tooltip1" style="cursor:pointer" onclick="work_route(' + full["daID"] + ')" ><i id="viewPlaceHolder" class="material-icons location-icon">location_on</i><span class="tooltiptext1">Work Map Route</span> </a>'; }, "width": "10px" },*/
+            { "data": "InBatteryStatus", "name": "InBatteryStatus", "autoWidth": true },
+            { "data": "OutBatteryStatus", "name": "OutBatteryStatus", "autoWidth": true },
+
+
+        ],
+        //Sort: "locId DESC"
+    });
     var UserId = $('#selectnumber').val();
     $.ajax({
         type: "post",
@@ -29,6 +70,7 @@
         debugger;
         var partialViewToInsert = oTable.data()[0].daID;
         replaceContentsOfDiv(partialViewToInsert);
+       
     });
     function replaceContentsOfDiv(partialViewToInsert) {
         debugger;
@@ -38,50 +80,11 @@
             type: "POST",
             success: function (data) {
                 $('#map').html(data);
+                $('#map').show();
             }
         });
     }
-    $("#demoGridnew").DataTable({
-
-        "sDom": "ltipr",
-        //"order": [[10, "desc"]],
-        "processing": true, // for show progress bar
-        "serverSide": true, // for process server side
-        "filter": true, // this is for disable filter (search box)
-        "orderMulti": false, // for disable multiple column at once
-       // "pageLength": 1,
-      //  "bPaginate": false,
-        width: 670,
-        "ajax": {
-            "url": "/Datable/GetJqGridJson?rn=EmployeeSummarynew",
-            "type": "POST",
-            "datatype": "json"
-            
-        },
-
-        "columnDefs":
-            [{
-                "targets": [0],
-                "visible": false,
-                "searchable": false
-            },
-            ],
-        "columns": [
-            { "data": "daID", "name": "daID", "id":"daID", "autoWidth": true },
-            { "data": "UserName", "name": "userName", "autoWidth": true },
-            { "data": "daDate", "name": "daDate", "autoWidth": true },
-            { "data": "StartTime", "name": "startTime", "autoWidth": true },
-            { "data": "DaEndDate", "name": "daEndDate", "autoWidth": true },
-            { "data": "EndTime", "name": "endTime", "autoWidth": true },
-            { "data": "VehicleNumber", "name": "VehicleNumber", "autoWidth": true },
-      /*   { "render": function (data, type, full, meta) { return '<a   data-toggle="modal" class="tooltip1" style="cursor:pointer" onclick="work_route(' + full["daID"] + ')" ><i id="viewPlaceHolder" class="material-icons location-icon">location_on</i><span class="tooltiptext1">Work Map Route</span> </a>'; }, "width": "10px" },*/       
-            { "data": "InBatteryStatus", "name": "InBatteryStatus", "autoWidth": true },
-            { "data": "OutBatteryStatus", "name": "OutBatteryStatus", "autoWidth": true },
-
-
-        ],
-        //Sort: "locId DESC"
-    });
+  
     
    
 });
@@ -124,6 +127,7 @@ function map(a) {
 function Filter1() {
 
     Search();
+    $('#map').hide();
   
 }
 
